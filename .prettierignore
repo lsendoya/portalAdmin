@@ -1,0 +1,7 @@
+# Ignorar directorios
+node_modules
+.next
+.out
+
+# Ignorar archivos
+*.min.js

@@ -1,12 +1,7 @@
-import { Product } from '@/utils/types/product';
-import { CarouselProduct } from '@/components/ui/products/carousel';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/card';
-import { useSelectProduct } from '@/app/hooks/useProduct';
+import {Product} from '@/utils/types/product';
+import {CarouselProduct} from '@/components/ui/products/carousel';
+import {Card, CardContent, CardFooter, CardHeader,} from '@/components/ui/card';
+import {useSelectProduct} from '@/app/hooks/useProduct';
 
 interface Props {
   product: Product;

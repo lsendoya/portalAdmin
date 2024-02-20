@@ -4,12 +4,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'https://productsdalas2730.s3.amazonaws.com',
+        hostname: 'productsdalas2730.s3.us-east-1.amazonaws.com',
         port: '',
         pathname: '/*',
       },
     ],
-  }
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

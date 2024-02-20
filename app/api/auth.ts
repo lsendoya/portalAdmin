@@ -1,13 +1,13 @@
 import {
-  autoSignIn,
-  confirmSignUp,
-  type ConfirmSignUpInput,
-  fetchAuthSession,
-  getCurrentUser,
-  signIn,
-  type SignInInput,
-  signOut,
-  signUp,
+    autoSignIn,
+    confirmSignUp,
+    type ConfirmSignUpInput,
+    fetchAuthSession,
+    getCurrentUser,
+    signIn,
+    type SignInInput,
+    signOut,
+    signUp,
 } from 'aws-amplify/auth';
 
 export type SignUpParameters = {

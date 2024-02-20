@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { currentSession } from '@/app/api/auth';
-import { useAuthStore, User } from '@/app/store/auth';
+import {useEffect} from 'react';
+import {currentSession} from '@/app/api/auth';
+import {useAuthStore, User} from '@/app/store/auth';
 
 export default function useSession() {
   const login = useAuthStore((state) => state.login);

@@ -1,19 +1,14 @@
 import * as z from 'zod';
-import { productSchema } from '@/utils/schemas/createProduct';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { toggleStore } from '@/app/store/toggleStore';
-import { useAuthStore } from '@/app/store/auth';
-import { productStore } from '@/app/store/product';
-import {
-  createProduct,
-  getProduct,
-  listProducts,
-  updateProduct,
-} from '@/app/api/product';
-import { useEffect, useState } from 'react';
+import {productSchema} from '@/utils/schemas/createProduct';
+import {useForm} from 'react-hook-form';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {toggleStore} from '@/app/store/toggleStore';
+import {useAuthStore} from '@/app/store/auth';
+import {productStore} from '@/app/store/product';
+import {createProduct, getProduct, listProducts, updateProduct,} from '@/app/api/product';
+import {useEffect, useState} from 'react';
 import lodash from 'lodash';
-import { productSchemaUpdate } from '@/utils/schemas/updateProduct';
+import {productSchemaUpdate} from '@/utils/schemas/updateProduct';
 
 type FormValuesProducts = z.infer<typeof productSchema>;
 

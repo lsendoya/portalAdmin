@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { Product, Products } from '@/utils/types/product';
+import {create} from 'zustand';
+import {Product, Products} from '@/utils/types/product';
 
 interface ToggleState {
   products: Products;

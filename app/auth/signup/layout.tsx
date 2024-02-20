@@ -1,6 +1,6 @@
 'use client';
-import { Inter } from 'next/font/google';
-import { useAuthStore } from '@/app/store/authStore';
+import {Inter} from 'next/font/google';
+import {useAuthStore} from '@/app/store/auth';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,6 +12,5 @@ export default function SignUPLayout({
   register: React.ReactNode;
 }>) {
   let isRegister = useAuthStore((state) => state.isRegister);
-  console.log(isRegister);
-  return <div>{!isRegister ? register : confirm}</div>;
+  return <section>{!isRegister ? register : confirm}</section>;
 }

@@ -1,4 +1,4 @@
-interface Size {
+export interface Size {
   size2_4: number;
   size6_8: number;
   size10_12: number;
@@ -14,7 +14,7 @@ export interface Product {
   color: string;
   material: string | null;
   imageURLS: string[];
-  isAvailable: boolean;
+  available: boolean;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;

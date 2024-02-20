@@ -1,6 +1,6 @@
 'use client';
 
-import { ConfirmationForm } from '@/components/ui/auth/confirmation-form';
+import {ConfirmationForm} from '@/components/ui/auth/confirmation-form';
 
 export default function Confirm() {
   return (
