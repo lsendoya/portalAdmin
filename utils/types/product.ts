@@ -5,7 +5,7 @@ interface Size {
   size14_16: number;
 }
 
-interface Product {
+export interface Product {
   id: string;
   name: string;
   description: string;
@@ -15,4 +15,9 @@ interface Product {
   material: string | null;
   imageURLS: string[];
   isAvailable: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date | null;
 }
+
+export type Products = Product[];
