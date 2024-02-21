@@ -8,10 +8,10 @@ import {AccountLink} from '@/components/ui/auth/callAction';
 import {Label} from '@radix-ui/react-menu';
 
 export function RegisterForm() {
-  const { form, onSubmit, setVisibility, visibility } = useRegister();
+  const { form, onSubmit, setShowPassword, showPassword } = useRegister();
 
   function onToggleVisibility() {
-    setVisibility(!visibility);
+    setShowPassword(!showPassword);
   }
 
   return (
@@ -68,11 +68,11 @@ export function RegisterForm() {
               <FormItem>
                 <FormControl>
                   <Input
-                    type={visibility ? 'text' : 'password'}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="contraseña"
                     {...field}
                     rightIcon={
-                      visibility ? (
+                      showPassword ? (
                         <HiEye onClick={onToggleVisibility} />
                       ) : (
                         <HiEyeOff onClick={onToggleVisibility} />
@@ -92,11 +92,11 @@ export function RegisterForm() {
               <FormItem>
                 <FormControl>
                   <Input
-                    type={visibility ? 'text' : 'password'}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="repetir contraseña"
                     {...field}
                     rightIcon={
-                      visibility ? (
+                      showPassword ? (
                         <HiEye onClick={onToggleVisibility} />
                       ) : (
                         <HiEyeOff onClick={onToggleVisibility} />

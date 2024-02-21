@@ -1,5 +1,3 @@
-import {Size} from '@/utils/types/product';
-
 export function maskEmail(email: string): string {
   const regex = /^([^@]+)@([^@.]+)(\.[^.]+)?$/;
   const matches = email.match(regex);
@@ -14,9 +12,3 @@ export function maskEmail(email: string): string {
     domainName.substring(0, 2) + '*'.repeat(domainName.length - 2);
   return `${obscuredUsername}@${obscuredDomainName}${domainExtension || ''}`;
 }
-
-export const transformProductSizeToStrings = (size: Size) => {
-  return Object.fromEntries(
-    Object.entries(size).map(([key, value]) => [key, String(value)])
-  );
-};

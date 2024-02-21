@@ -5,7 +5,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {toggleStore} from '@/app/store/toggleStore';
 import {useAuthStore} from '@/app/store/auth';
 import {productStore} from '@/app/store/product';
-import {createProduct, getProduct, listProducts, updateProduct,} from '@/app/api/product';
+import {createProduct, listProducts, updateProduct,} from '@/app/api/product';
 import {useEffect, useState} from 'react';
 import lodash from 'lodash';
 import {productSchemaUpdate} from '@/utils/schemas/updateProduct';
@@ -26,13 +26,14 @@ export function useCreateProduct() {
       name: '',
     },
   });
-  setLoading(!isLoading);
+
   async function onCreateProduct(values: FormValuesProducts) {
     try {
       const product = await createProduct(
         String(token),
         createFormData(values)
       );
+      setLoading(!isLoading);
 
       if (!lodash.isNull(product)) {
         setActionProduct();
@@ -89,7 +90,6 @@ export function useListProducts() {
     const list = async () => {
       const products = await listProducts();
       if (!lodash.isNull(products)) {
-        console.log('no is null');
         setLoading(false);
       }
       setProducts(products);
@@ -115,7 +115,6 @@ export function useSelectProduct(index: number) {
     const productSelected = products.filter(
       (product) => product.id === productsIDsItems[index]
     );
-    console.log('product selected--', productSelected);
     setProductToEdit(productSelected[0]);
     setToggle();
   };
@@ -163,7 +162,6 @@ export function useUpdateProduct() {
       available,
       description,
     };
-    console.log('payload--', payload);
     setLoading(!isLoading);
     try {
       const product = await updateProduct(
@@ -187,18 +185,5 @@ export function useUpdateProduct() {
     form,
     onUpdateProduct,
     isLoading,
-  };
-}
-export function useGetProduct() {
-  let product;
-  useEffect(() => {
-    const list = async () => {
-      product = await getProduct('');
-    };
-    list().then((r) => r);
-  }, []);
-
-  return {
-    product,
   };
 }

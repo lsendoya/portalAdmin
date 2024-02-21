@@ -9,10 +9,10 @@ import useLogin from '@/app/hooks/useLogin';
 import {AccountLink} from '@/components/ui/auth/callAction';
 
 export function LoginForm() {
-  const { form, onSubmit, setVisibility, visibility, valid } = useLogin();
+  const { form, onSubmit, setShowPassword, showPassword, valid } = useLogin();
 
   function onToggleVisibility() {
-    setVisibility(!visibility);
+    setShowPassword(!showPassword);
   }
 
   return (
@@ -46,11 +46,11 @@ export function LoginForm() {
               <FormItem>
                 <FormControl>
                   <Input
-                    type={visibility ? 'text' : 'password'}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="password"
                     {...field}
                     rightIcon={
-                      visibility ? (
+                      showPassword ? (
                         <HiEye onClick={onToggleVisibility} />
                       ) : (
                         <HiEyeOff onClick={onToggleVisibility} />

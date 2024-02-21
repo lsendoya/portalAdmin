@@ -170,11 +170,7 @@ export function CreateForm() {
               </FormItem>
             )}
           />
-          {!isLoading && (
-            <Button disabled={isLoading} type="submit">
-              Crear
-            </Button>
-          )}
+          {!isLoading && <Button type="submit">Crear</Button>}
         </form>
       </Form>
 

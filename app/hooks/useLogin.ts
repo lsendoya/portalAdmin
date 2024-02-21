@@ -1,17 +1,15 @@
 import {useState} from 'react';
 import {useRouter} from 'next/navigation';
-import {useAuthStore} from '@/app/store/auth';
 import {useForm} from 'react-hook-form';
 import * as z from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {currentAuthenticatedUser, handleSignIn} from '@/app/api/auth';
 import {loginSchema} from '@/utils/schemas/login';
+import {handleSignIn} from '@/app/api/auth';
 
 export default function useLogin() {
-  const [visibility, setVisibility] = useState<boolean>(false);
-  const router = useRouter();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const [valid, setValid] = useState<boolean | undefined>(undefined);
-  const setAuthenticated = useAuthStore((state) => state.setAuthenticated);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -30,23 +28,20 @@ export default function useLogin() {
       });
       if (isSignedIn) {
         setValid(true);
-        setAuthenticated(true);
-        await currentAuthenticatedUser();
-
         router.push('/dashboard');
         return;
       }
       setValid(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
   return {
     form,
     onSubmit,
-    visibility,
-    setVisibility,
+    showPassword,
+    setShowPassword,
     valid,
   };
 }

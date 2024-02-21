@@ -8,14 +8,12 @@ export interface User {
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
-  isLoading: boolean;
   token: string | null;
   email: string;
   login: (user: User | null, token: string) => void;
   logout: () => void;
   setRegister: (value: boolean) => void;
   isRegister: boolean;
-  setLoading: () => void;
   setEmail: (email: string) => void;
   setAuthenticated: (value: boolean) => void;
 }
@@ -27,8 +25,6 @@ export const useAuthStore = create<AuthState>((set) => ({
   isRegister: false,
   email: '',
   isSignedIn: false,
-  isLoading: true,
-  setLoading: () => set((state) => ({ isLoading: !state.isLoading })),
   setRegister: (value: boolean) => set({ isRegister: value }),
   login: (user, token) =>
     set({ user: user || null, isAuthenticated: true, token }),

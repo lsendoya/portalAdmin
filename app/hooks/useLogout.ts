@@ -4,17 +4,15 @@ import {handleSignOut} from '@/app/api/auth';
 
 export default function useLogout() {
   const router = useRouter();
-  const setAuthenticated = useAuthStore((state) => state.setAuthenticated);
-  const login = useAuthStore((state) => state.login);
+  const logout = useAuthStore((state) => state.logout);
 
   const handleLogout = async () => {
     try {
       await handleSignOut();
-      setAuthenticated(false);
-      login(null, '');
-      router.push('/');
+      logout();
+      router.push('/auth');
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

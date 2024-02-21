@@ -8,9 +8,8 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 export const ProtectedProvider = ({ children }: AuthProviderProps) => {
-  useSession();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-
+  useSession();
   if (!isAuthenticated) {
     return <DeniedAccess />;
   }

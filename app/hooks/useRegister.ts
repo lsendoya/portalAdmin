@@ -8,7 +8,7 @@ import lodash from 'lodash';
 import {registerSchema} from '@/utils/schemas/register';
 
 export default function useRegister() {
-  const [visibility, setVisibility] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const setEmail = useAuthStore((state) => state.setEmail);
   const setRegister = useAuthStore((state) => state.setRegister);
 
@@ -24,7 +24,6 @@ export default function useRegister() {
   });
 
   async function onSubmit(values: z.infer<typeof registerSchema>) {
-    console.log(values);
     const { name, birthdate, password, email } = values;
     let user = {
       name: name,
@@ -41,14 +40,14 @@ export default function useRegister() {
         return;
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
   return {
     form,
     onSubmit,
-    visibility,
-    setVisibility,
+    showPassword,
+    setShowPassword,
   };
 }

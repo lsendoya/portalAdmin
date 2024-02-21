@@ -101,4 +101,3 @@ export async function createProduct(token: string, formData: FormData) {
     console.error(error);
   }
 }
-interface response {}
